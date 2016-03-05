@@ -20,28 +20,28 @@ Before() {
 
 After() { bindingUpdater.remove() }
 
-Given(~/^the user is landed at the home page$/) { -> to HomePage }
+Given(~/^I am on the home page$/) { -> to HomePage }
 
-When(~/^the user selects 'Latest News'$/) {
+When(~/^I select 'Latest News'$/) {
 	->
 	page.selectLatestNews()
 	at NewsPage
 }
 
-When(~/^the user selects "([^"]*)"$/) {  String category ->
+When(~/^I select "([^"]*)"$/) {  String category ->
 	def newsCategoryPage = page.selectCategory(category)
 	at newsCategoryPage
 }
 
-When(~/^the user selects the first video on the 'Watch-Listen' section$/) {
+When(~/^I select the first video on the 'Watch-Listen' section$/) {
 	->
 	def selectFirstVideo = page.selectFirstVideo()
 	at selectFirstVideo
 }
 
-When(~/^the user shares the video page on facebook$/) {
+When(~/^I share the video page on facebook$/) {
 	-> fbPage = page.shareOnFacebook()
 }
 
-Then(~/^the facebook page loads having a url that includes the video page url$/) { -> at fbPage }
+Then(~/^the facebook page loads with the video page url$/) { -> at fbPage }
 
