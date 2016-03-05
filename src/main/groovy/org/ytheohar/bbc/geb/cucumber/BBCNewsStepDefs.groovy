@@ -7,15 +7,15 @@ import geb.binding.BindingUpdater
 
 import java.util.concurrent.TimeUnit
 
-import org.ytheohar.bbc.geb.cucumber.page.HomePage;
-import org.ytheohar.bbc.geb.cucumber.page.NewsPage;
+import org.ytheohar.bbc.geb.cucumber.page.HomePage
+import org.ytheohar.bbc.geb.cucumber.page.NewsPage
 
 def fbPage
 
 Before() {
 	bindingUpdater = new BindingUpdater(binding, new Browser())
 	bindingUpdater.initialize()
-	browser.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	browser.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS)
 }
 
 After() { bindingUpdater.remove() }
@@ -38,12 +38,12 @@ When(~/^the user selects "([^"]*)"$/) {  String category ->
 
 When(~/^the user selects the first video on the 'Watch-Listen' section$/) {
 	->
-	def selectFirstVideo = page.selectFirstVideo();
+	def selectFirstVideo = page.selectFirstVideo()
 	at selectFirstVideo
 }
 
 When(~/^the user shares the video page on facebook$/) {
-	-> fbPage = page.shareOnFacebook();
+	-> fbPage = page.shareOnFacebook()
 }
 
 Then(~/^the facebook page loads having a url that includes the video page url$/) { -> at fbPage }
