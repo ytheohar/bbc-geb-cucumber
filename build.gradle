@@ -1,0 +1,33 @@
+apply plugin: 'groovy'
+apply plugin: 'eclipse'
+apply plugin: 'maven'
+
+group 'org.ytheohar'
+archivesBaseName = 'bbc-geb-cucumber'
+version '0.0.1'
+
+ext {
+	groovyVersion = '2.4.6'
+	gebVersion = '0.13.1'
+	cucumberVersion = '1.2.4'
+	seleniumVersion = '2.52.0'
+}
+
+repositories { mavenCentral() }
+
+dependencies {
+	compile "org.codehaus.groovy:groovy-all:$groovyVersion"
+	compile "org.gebish:geb-core:$gebVersion"
+	compile "info.cukes:cucumber-groovy:$cucumberVersion"
+	compile "org.seleniumhq.selenium:selenium-firefox-driver:$seleniumVersion"
+
+	testCompile "org.gebish:geb-junit4:$gebVersion"
+	testCompile "info.cukes:cucumber-junit:$cucumberVersion"
+	testCompile "junit:junit:4.12"
+}
+
+test {
+	testLogging {
+		events "passed", "skipped", "failed", "standardOut", "standardError"
+	}
+}
