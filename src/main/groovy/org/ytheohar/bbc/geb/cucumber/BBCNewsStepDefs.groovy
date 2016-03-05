@@ -20,10 +20,7 @@ Before() {
 
 After() { bindingUpdater.remove() }
 
-Given(~/^the user is landed at the home page$/) {
-	-> to HomePage
-	at HomePage
-}
+Given(~/^the user is landed at the home page$/) { -> to HomePage }
 
 When(~/^the user selects 'Latest News'$/) {
 	->
