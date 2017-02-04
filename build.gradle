@@ -10,7 +10,7 @@ ext {
 	groovyVersion = '2.4.6'
 	gebVersion = '0.13.1'
 	cucumberVersion = '1.2.4'
-	seleniumVersion = '2.52.0'
+	seleniumVersion = '3.0.1'
 }
 
 repositories { mavenCentral() }

@@ -6,5 +6,8 @@ class FBPage extends Page {
 
 	String encodedLink
 
-	static at = { driver.currentUrl.contains(encodedLink) }
+	static at = {
+		driver.currentUrl.contains(encodedLink) ||
+		driver.currentUrl.contains(encodedLink.replaceAll("www.bbc.com", "www.bbc.co.uk"))
+	}
 }
